@@ -1,24 +1,29 @@
 pipeline {
     agent any
+    
     tools {
         maven 'Maven-3.9.9'
     }
+    
     environment {
         IMAGE_NAME = "imohan21/maven-web-app"
         IMAGE_TAG  = "${BUILD_NUMBER}"
         DOCKER_CRED = 'mohan-dock-hub'
     }
+    
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'master', url: 'https://github.com/mohan-m21/maven-web-app.git'
             }
         }
+        
         stage('Maven Build') {
             steps {
                 sh 'mvn clean package'
             }
         }
+        
         stage('Docker Build') {
             steps {
                 sh 'cp target/maven-web-app.war target/ROOT.war || true'
@@ -26,6 +31,7 @@ pipeline {
                 sh "docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:latest"
             }
         }
+        
         stage('Docker Push') {
             steps {
                 withCredentials([usernamePassword(credentialsId: DOCKER_CRED, usernameVariable: 'DH_USER', passwordVariable: 'DH_PASS')]) {
@@ -35,6 +41,7 @@ pipeline {
                 }
             }
         }
+        
         stage('Deploy Container') {
             steps {
                 sh '''
@@ -46,11 +53,11 @@ pipeline {
             }
         }
     }
+    
     post {
         always {
             echo "Pipeline finished - check http://15.207.16.110:8282/maven-web-app/"
             echo "If ROOT.war used: http://15.207.16.110:8282/"
         }
     }
-}
 }

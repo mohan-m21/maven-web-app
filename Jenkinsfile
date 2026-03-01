@@ -33,12 +33,12 @@ pipeline {
             }
         }
 
-        stage('Docker Push') {
+         stage('Docker Push') {
             steps {
                 withCredentials([usernamePassword(credentialsId: DOCKER_CRED, usernameVariable: 'DH_USER', passwordVariable: 'DH_PASS')]) {
-                    sh 'echo $DH_PASS | docker login -u $DH_USER --password-stdin'
-                    sh "docker push $$   {IMAGE_NAME}:   $${IMAGE_TAG}"
-                    sh "docker push ${IMAGE_NAME}:latest"
+                sh 'echo $DH_PASS | docker login -u $DH_USER --password-stdin'
+                sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                sh "docker push ${IMAGE_NAME}:latest"   // optional, for easy deploy
                 }
             }
         }

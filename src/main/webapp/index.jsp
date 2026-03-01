@@ -162,7 +162,7 @@
 
         <div class="trainee-section">
             <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
+                src="jana.jpg.png" 
                 alt="Trainee Jana" 
                 class="trainee-img"
             >

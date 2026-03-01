@@ -8,7 +8,7 @@ pipeline {
     environment {
         IMAGE_NAME = "prudhvi/maven-web-app"  // change to nee Docker Hub repo
         IMAGE_TAG  = "${BUILD_NUMBER}"
-        DOCKER_CRED = 'docker-hub-creds'     // nee credential ID
+        DOCKER_CRED = 'mohan-dock-hub'     // nee credential ID
     }
 
     stages {

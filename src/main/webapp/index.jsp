@@ -24,7 +24,7 @@
             /* Background image + overlay */
             background-image: 
                 linear-gradient(rgba(245, 247, 250, 0.88), rgba(228, 233, 253, 0.92)),
-                url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=2072');
+                url('https://www.instagram.com/p/DNXIKZXqKxw/?igsh=MTlzZWtiaGR2Y2V4eQ==');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;

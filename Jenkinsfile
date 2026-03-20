@@ -8,7 +8,7 @@ pipeline {
     environment {
         IMAGE_NAME = "imohan21/maven-web-app"
         IMAGE_TAG  = "${BUILD_NUMBER}"
-        DOCKER_CRED = 'mohan-dock-hub'
+        DOCKER_CRED = 'Mohan_Docker_Hub'
     }
     
     stages {

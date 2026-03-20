@@ -41,9 +41,11 @@ pipeline {
                 }
             }
         }
-         stage('Deploy Container') {
+         stage('Deploy K8S') {
               steps {
-                  sh ''
+                  sh 'kubectl apply -f k8s-deployment.yaml'
+              }
+         }
         
 //        stage('Deploy Container') {
 //            steps {

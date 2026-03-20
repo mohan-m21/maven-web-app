@@ -41,17 +41,20 @@ pipeline {
                 }
             }
         }
+         stage('Deploy Container') {
+              steps {
+                  sh ''
         
-        stage('Deploy Container') {
-            steps {
-                sh '''
-                    docker stop javaWeb || true
-                    docker rm javaWeb || true
-                    docker pull ${IMAGE_NAME}:latest
-                    docker run -d -p 8282:8080 --name javaWeb ${IMAGE_NAME}:latest
-                '''
-            }
-        }
+//        stage('Deploy Container') {
+//            steps {
+//                sh '''
+//                    docker stop javaWeb || true
+//                    docker rm javaWeb || true
+//                    docker pull ${IMAGE_NAME}:latest
+//                    docker run -d -p 8282:8080 --name javaWeb ${IMAGE_NAME}:latest
+//                '''
+//            }
+//        }
     }
     
     post {
